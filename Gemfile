@@ -6,7 +6,6 @@ ruby '2.7.0'
 gem 'uglifier', '>=1.3.0'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'twitter-bootstrap-rails'
-gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'webpacker', '~> 4.0'
 
@@ -21,4 +20,8 @@ end
 
 group :development do
   gem 'listen'
+end
+
+group :production do
+  gem 'pg'
 end

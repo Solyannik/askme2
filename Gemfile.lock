@@ -184,7 +184,7 @@ DEPENDENCIES
   devise
   devise-i18n
   listen
-  pg (>= 0.18, < 2.0)
+  pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-i18n

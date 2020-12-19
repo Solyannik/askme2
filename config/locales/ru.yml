@@ -1,29 +1,183 @@
 ru:
   activerecord:
     models:
-      user: 'Пользователь'
-      event: 'Событие'
-
+      user: Регистрация пользователя
+      event: Событие
+      subscription: Подписка
+      comment: Комментарий
+      photo: Фотография
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: должно совпадать с паролем
+            password:
+              too_short: слишком короткий
+              blank: не может быть пустым
+        event:
+          attributes:
+            datetime:
+              after: "должно быть после %{restriction}"
     attributes:
       user:
-        email: 'Email'
-        name: 'Имя'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
+        email: Email
+        name: Имя
+        avatar: Аватар
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
+        remember_me: Запомнить меня
       event:
-        title: 'Название'
-        address: 'Место проведения'
-        datetime: 'Дата и время'
-        description: 'Описание'
-
+        title: Название
+        address: Адрес
+        description: Описание
+        datetime: Дата
+        pincode: Пинкод доступа
+      subscription:
+        user: Пользователь
+        user_name: Имя
+        user_email: Email
+      comment:
+        body: Ваш комментарий
+        user_name: Имя
+      photo:
+        photo: Фотография
   controllers:
     events:
-      created: 'Вы создали новое мероприятие'
-      updated: 'Вы обновили мероприятие'
-      destroyed: 'Вы удалили мероприятие :('
+      created: Событие успешно создано.
+      updated: Событие успешно обновлено.
+      destroyed: Событие удалено.
+      wrong_pincode: Неверный пинкод!
     users:
-      updated: 'Вы обновили свой профиль'
-
+      updated: Данные профиля успешно обновлены.
+    comments:
+      created: Комментарий добавлен.
+      destroyed: Комментарий удален.
+      error: Ошибка с комментарием.
+    subscription:
+      created: Вы подписанны на это событие.
+      destroyed: Участник отписан.
+      error: "Подписка/отписка на сработала."
+    photos:
+      error: Что-то не так с фотографией.
+      created: Вы добавили фотографию к событию.
+      destroyed: Вы удалили фотографию.
   app:
     name: 'Шашлыки'
+    sign_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
     company: 'BBQ'
+    forget: 'Забыли пароль?'
+    profile: 'Профиль'
+    delete: 'Удалить'
+    change: 'Изменить'
+    signout: 'Выйти'
+    back: 'вернуться'
+    save: 'Сохранить'
+  error:
+    one: "В вашей форме %{count} ошибка"
+    few: "В вашей форме %{count} ошибки"
+    many: "В вашей форме %{count} ошибок"
+  comments:
+    form:
+      send_btn: Отправить
+    comment:
+      title: Удаление события.
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+      commit: "Да, конечно."
+      cancel: "Нет, я передумал."
+  subscriptions:
+    form:
+      subscribe_btn: 'Подписаться'
+    subscription:
+      title: Отписка от события.
+      destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
+      commit: "Да, конечно."
+      cancel: "Нет, я передумал."
+  photos:
+    photo:
+      title: Удаление фотографии.
+      destroy_confirm: 'Вы уверены, что хотите удалить фото?'
+      commit: "Да, конечно."
+      cancel: "Нет, я передумал."
+    photo_title:
+      title: Удаление фотографии.
+      destroy_confirm: 'Вы уверены, что хотите удалить фото?'
+      commit: "Да, конечно."
+      cancel: "Нет, я передумал."
+  event_mailer:
+    comment:
+      subject: "Новый комментарий @ %{title}"
+      title: Новый комментарий
+      author: Автор
+      event: Событие
+      datetime: Дата события
+      owner: Организатор
+    subscription:
+      subject: "Новая подписка @ %{title}"
+      title: Новая подписка
+      name: Имя
+      email: Email
+      author: Автор
+      event: Событие
+      datetime: Дата события
+      owner: Организатор
+    photo:
+      subject: "Новая фотография @ %{title}"
+      title: Новая фотография
+      author: Автор
+      event: Событие
+      datetime: Дата события
+      owner: Организатор
+  views:
+    events:
+      password_form_header: Доступ только по пинкоду
+      pincode: Пинкод
+    photos:
+      added: Добавил
+    main: На главную
+    new_session_head: Вход
+    new_session: Войти
+    new_registration: Готово
+    new_password: Забыл пароль?
+    new_confirmation: Не получал инструкции для подтверждения?
+    new_unlock: Не получал инструкции для разблокировки?
+    omniauth: "Войти при помощи %{omni_utils}"
+    new_password_label: Новый пароль
+    edit_password: Смените ваш пароль
+    password_confirmation_label: Подстверждение пароля
+    change_password: Изменить пароль
+    min_password_length:
+      one: "%{count} символ минимум"
+      few: "%{count} символа минимум"
+      many: "%{count} символов минимум"
+    forgot_password: Забыли ваш пароль?
+    send_instructions_btn: Отправить инструкции по смене пароля
+    edit_user: Редактирование данных пользователя
+    renew_btn: Обновить
+    remove_acc: Удалить аккаунт
+    remove_acc_question: Вы уверенны?
+    remove_event_question: Вы точно хотите удалить событие?
+    back: Назад
+    return: вернуться
+    reg_user: Регистрация пользователя
+    save_btn: Сохранить
+    edit_event: Редактирование события
+    index_events: События
+    create_event_link: Создать событие
+    new_event: Новое событие
+    edit_event_link: Изменить
+    remove_event_link: Удалить
+    profile_link: Профиль
+    quit_link: Выйти
+    come_in_link: Войти
+    edit_profile: Редактирование профиля
+    event_owner: Организовал
+    user_not_events_owner_msg: Пользователь пока не организовал ни одного события
+    need_current_password_msg: (нам нужен текущий пароль, чтобы подтвердить изменения)
+    confirm:
+      title: Удаление события.
+      commit: "Да, конечно."
+      cancel: "Нет, я передумал."
+    waiting_confirmation: "Ожидается подтверждение для:"
