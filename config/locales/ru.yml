@@ -81,10 +81,6 @@ ru:
     signout: 'Выйти'
     back: 'вернуться'
     save: 'Сохранить'
-  error:
-    one: "В вашей форме %{count} ошибка"
-    few: "В вашей форме %{count} ошибки"
-    many: "В вашей форме %{count} ошибок"
   comments:
     form:
       send_btn: Отправить
@@ -138,6 +134,7 @@ ru:
       owner: Организатор
   views:
     events:
+      are_you_sure: Вы уверены, что хотите удалить это событие?
       password_form_header: Доступ только по пинкоду
       pincode: Пинкод
     photos:
