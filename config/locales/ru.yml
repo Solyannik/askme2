@@ -1,4 +1,10 @@
 ru:
+  error:
+    zero: ошибок
+    one: ошибка
+    few: ошибки
+    many: ошибок
+    other: ошибки
   activerecord:
     models:
       user: Регистрация пользователя
