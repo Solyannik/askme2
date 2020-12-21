@@ -87,21 +87,22 @@ ru:
     comment:
       title: Удаление события.
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-      commit: "Да, конечно."
+      comment: "Да, конечно."
       cancel: "Нет, я передумал."
   subscriptions:
     form:
-      subscribe_btn: 'Подписаться'
+      subscribe: 'Подписаться'
     subscription:
       title: Отписка от события.
+      has_email: 'Пользователь с таким email уже зарегистрирован'
       destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
-      commit: "Да, конечно."
+      comment: "Да, конечно."
       cancel: "Нет, я передумал."
   photos:
     photo:
       title: Удаление фотографии.
       destroy_confirm: 'Вы уверены, что хотите удалить фото?'
-      commit: "Да, конечно."
+      comment: "Да, конечно."
       cancel: "Нет, я передумал."
     photo_title:
       title: Удаление фотографии.

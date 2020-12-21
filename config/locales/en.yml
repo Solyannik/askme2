@@ -87,21 +87,21 @@ u:
     comment:
       title: Delete event
       destroy_confirm: Are you sure delete commit
-      commit: Yes
+      comment: Yes
       cancel: No
   subscriptions:
     form:
-      subscribe_btn: Subscribe
+      subscribe: Subscribe
     subscription:
       title: Unsubscribe
       destroy_confirm: Are you sure unsubscribe
-      commit: Yes
+      comment: Yes
       cancel: No
   photos:
     photo:
       title: Delete photo
       destroy_confirm: Are you sure delete photo
-      commit: Yes
+      comment: Yes
       cancel: No
     photo_title:
       title: Delete photo
