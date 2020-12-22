@@ -181,3 +181,6 @@ u:
       commit: Yes
       cancel: No
     waiting_confirmation: "Confirmation expected for:"
+  errors: 
+    custom_event: You can not subscribe to your event
+    user_email: Occupied by registered user

@@ -95,6 +95,8 @@ ru:
     subscription:
       title: Отписка от события.
       has_email: 'Пользователь с таким email уже зарегистрирован'
+      your_custom_event: 'вы не можете подписываться на свои события'
+      user_email: уже занят зарегистрированным пользователем
       destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
       comment: "Да, конечно."
       cancel: "Нет, я передумал."
@@ -124,6 +126,8 @@ ru:
       email: Email
       author: Автор
       event: Событие
+      your_custom_event: 'Вы не можете подписываться на свои события'
+      user_email: уже занят зарегистрированным пользователем
       datetime: Дата события
       owner: Организатор
     photo:
@@ -152,10 +156,6 @@ ru:
     edit_password: Смените ваш пароль
     password_confirmation_label: Подстверждение пароля
     change_password: Изменить пароль
-    min_password_length:
-      one: "%{count} символ минимум"
-      few: "%{count} символа минимум"
-      many: "%{count} символов минимум"
     forgot_password: Забыли ваш пароль?
     send_instructions_btn: Отправить инструкции по смене пароля
     edit_user: Редактирование данных пользователя
@@ -185,3 +185,4 @@ ru:
       commit: "Да, конечно."
       cancel: "Нет, я передумал."
     waiting_confirmation: "Ожидается подтверждение для:"
+    
