@@ -5,7 +5,7 @@ var jQuery = require('jquery')
 require("bootstrap")
 
 import "bootstrap/dist/js/bootstrap";
-
+import "air-datepicker/dist/js/datepicker.min"
 import "../styles/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {
