@@ -11,8 +11,8 @@ class Subscription < ActiveRecord::Base
 
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-  validate :custom_event?, on: :create, if: -> { user.present? }
-  validate :user_email_unique, on: :create, unless: -> { user.present? }
+  validate :custom_event?
+  validate :check_email_user
 
   def user_name
     if user.present?
@@ -31,14 +31,18 @@ class Subscription < ActiveRecord::Base
   end
 
   def custom_event?
-    if event.user == user
-      errors.add(:user, I18n.t('subscriptions.subscription.your_custom_event'))
+    if user.present?
+      if event.user == user
+        errors.add(:user, :own_custom_event)
+      end
     end
   end
 
   private
 
-  def user_email_unique
-    errors.add(:user_email, I18n.t('subscriptions.subscription.user_email')) if User.exists?(email: user_email)
+  def check_email_user
+    if user_id.blank? && user_email.present?
+      errors.add(:user_email, :error_message) if User.exists?(email: user_email)
+    end
   end
 end

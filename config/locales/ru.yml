@@ -6,14 +6,14 @@ ru:
     many: ошибок
     other: ошибки
   activerecord:
-    models:
-      user: Регистрация пользователя
-      event: Событие
-      subscription: Подписка
-      comment: Комментарий
-      photo: Фотография
     errors:
       models:
+        subscription:
+          attributes:
+            user: 
+              own_custom_event: 'вы не можете подписываться на свои события'
+            user_email:
+              error_message: перепроверьте, нельзя подписать существующего пользователя
         user:
           attributes:
             password_confirmation:
@@ -25,6 +25,13 @@ ru:
           attributes:
             datetime:
               after: "должно быть после %{restriction}"
+    models:
+      user: Регистрация пользователя
+      event: Событие
+      subscription: Подписка
+      comment: Комментарий
+      photo: Фотография
+    
     attributes:
       user:
         email: Email
@@ -95,7 +102,6 @@ ru:
     subscription:
       title: Отписка от события.
       has_email: 'Пользователь с таким email уже зарегистрирован'
-      your_custom_event: 'вы не можете подписываться на свои события'
       user_email: уже занят зарегистрированным пользователем
       destroy_confirm: 'Вы уверены, что хотите отписаться от события?'
       comment: "Да, конечно."
