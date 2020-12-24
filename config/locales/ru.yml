@@ -13,7 +13,7 @@ ru:
             user: 
               own_custom_event: 'вы не можете подписываться на свои события'
             user_email:
-              error_message: перепроверьте, нельзя подписать существующего пользователя
+              exists_email: перепроверьте, нельзя подписать существующего пользователя
         user:
           attributes:
             password_confirmation:
@@ -36,7 +36,7 @@ ru:
       user:
         email: Email
         name: Имя
-        avatar: Аватар
+        avatar: Аватарка
         password: Пароль
         password_confirmation: Подтверждение пароля
         current_password: Текущий пароль
