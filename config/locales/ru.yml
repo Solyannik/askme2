@@ -7,6 +7,8 @@ ru:
     other: ошибки
   activerecord:
     errors:
+      messages:
+        extension_whitelist_error: ошибка расширения файла  
       models:
         subscription:
           attributes:

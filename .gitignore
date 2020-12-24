@@ -17,6 +17,11 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.idea
+.idea/*
+.DS_Store
+*/.DS_Store
+public/uploads
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
