@@ -13,6 +13,7 @@ gem 'rmagick'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
