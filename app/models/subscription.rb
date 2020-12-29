@@ -12,7 +12,7 @@ class Subscription < ActiveRecord::Base
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
   validate :custom_event?
-  validate :check_email_for_exists_register_user? , unless: -> { user.present? }
+  validate :check_email_for_exists_register_user?, unless: -> { user.present? }
 
   def user_name
     if user.present?
@@ -41,6 +41,6 @@ class Subscription < ActiveRecord::Base
   private
 
   def check_email_for_exists_register_user?
-      errors.add(:user_email, :exists_email) if User.exists?(email: user_email)
+    errors.add(:user_email, :exists_email) if User.exists?(email: user_email)
   end
 end
