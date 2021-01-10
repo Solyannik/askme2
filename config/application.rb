@@ -14,12 +14,12 @@ require "action_cable/engine"
 
 Bundler.require(*Rails.groups)
 
-module Bbq
+module Mailjet
   class Application < Rails::Application
     config.load_defaults 6.0
     config.time_zone = 'Moscow'
     config.generators.system_tests = nil
-
+    config.action_mailer.delivery_method = :mailjet
     config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
   end

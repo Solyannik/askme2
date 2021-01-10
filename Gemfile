@@ -14,6 +14,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'fog-aws'
+gem 'mailjet'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
