@@ -41,4 +41,5 @@ public/uploads
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-.env
+config/secrets.yml
+config/database.yml
