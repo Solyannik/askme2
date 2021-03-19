@@ -64,4 +64,13 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :inline
   config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: 'test01112004@gmail.com', # не используйте для тестов свои реальные ящики
+    password: 'ntcnjdsqzobr', # не храните здесь пароль!
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end

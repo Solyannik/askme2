@@ -3,14 +3,14 @@ class MailDeliveryJob < ApplicationJob
 
   def perform(entity)
     event = entity.event
-    all_emails = (event.subscriptions.map(&:user_email) + [event&.user.email] - [entity&.user&.email]).uniq
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [entity.user&.email]).uniq
     
-    case entity.class.to_s
-    when "Comment"
+    case entity
+    when Comment
       all_emails.each { |mail| EventMailer.comment(event, entity, mail).deliver_later }
-    when "Photo"
+    when Photo
       all_emails.each { |mail| EventMailer.photo(event, entity, mail).deliver_later }
-    when "Subscription"
+    when Subscription
       EventMailer.subscription(event, entity).deliver_later
     end
   end

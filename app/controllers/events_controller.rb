@@ -32,6 +32,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    authorize @event
     @event.destroy
     redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
   end

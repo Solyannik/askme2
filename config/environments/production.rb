@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.active_job.queue_adapter = :resque
+  config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -31,7 +32,8 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
-
+  config.assets.compile = false
+  config.active_storage.service = :local
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
@@ -85,17 +87,14 @@ Rails.application.configure do
   # Делать рассылку писем (если false — мэйлер только имитирует работу, реальных писем не уходит)
   config.action_mailer.perform_deliveries = true
 
-  # отправка почты по протоколу SMTP
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailjet
 
-  # Настройки для Sendgrid
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
+   config.action_mailer.smtp_settings = {
+    address:  ENV['SMTP_HOST'],
+    port: '25',
+    user_name: ENV['SMTP_LOGIN'], # не используйте для тестов свои реальные ящики
+    password: ENV['SMTP_PASS'],
+    authentication: 'plain',
+    enable_starttls_auto: false
   }
 end

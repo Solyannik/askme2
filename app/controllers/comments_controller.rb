@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
     @new_comment.user = current_user
 
     if @new_comment.save
-      # notify all subscribers of a new comment
       MailDeliveryJob.perform_later(@new_comment)
       redirect_to @event, notice: I18n.t('controllers.comments.created')
     else
@@ -16,17 +15,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    type, message = :notice, I18n.t('controllers.comments.destroyed')
+    message = {notice: I18n.t('controllers.comments.destroyed')}
 
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      type, message = :alert, I18n.t('controllers.comments.error')
+      message = {alert: I18n.t('controllers.comments.error')}
     end
 
-    flash[type] = message
-    redirect_to @event
+    redirect_to @event, message
   end
+
 
   private
 
