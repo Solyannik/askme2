@@ -1,6 +1,6 @@
 Devise.setup do |config|
 
-  config.mailer_sender = Rails.application.credentials.dig(Rails.env.to_sym, :MAILJET_SENDER)
+  config.mailer_sender = 'test01112004@gmail.com'
 
   require 'devise/orm/active_record'
 
