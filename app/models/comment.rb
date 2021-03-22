@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   belongs_to :event
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates  :event, presence: true
   validates :body, presence: true
