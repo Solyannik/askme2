@@ -23,6 +23,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "mailjet"
+gem "dotenv-rails"
 
 group :production do
   gem 'pg'
