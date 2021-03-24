@@ -1,5 +1,7 @@
 <h1><%= t '.title' %></h1>
-<img src="http://localhost:3000/<%= @photo.photo.thumb.url %>">
+
+<%= image_tag @photo.photo.thumb.url%>
+
 <p><%= t '.author' %>: <strong><%= @photo.user.name %></strong></p>
 
 <hr/>
