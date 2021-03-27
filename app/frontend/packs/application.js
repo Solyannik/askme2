@@ -5,10 +5,12 @@ var jQuery = require('jquery')
 require("bootstrap")
 import "../styles/application"
 import "bootstrap/dist/js/bootstrap"
-import 'jquery/src/jquery'
+import "jquery/src/jquery"
+import "ekko-lightbox/ekko-lightbox"
 import "air-datepicker/dist/js/datepicker.min"
 import "../scripts/custom.js"
 import "./maps.js"
+import "../scripts/lightbox"
 
 document.addEventListener("turbolinks:load", function() {
     $(function () {
