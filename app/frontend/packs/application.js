@@ -3,11 +3,13 @@ require("@rails/ujs").start()
 var jQuery = require('jquery')
 
 require("bootstrap")
+import "../styles/application"
+import "bootstrap/dist/js/bootstrap"
+import 'jquery/src/jquery'
+import "air-datepicker/dist/js/datepicker.min"
+import "../scripts/custom.js"
+import "./maps.js"
 
-import "bootstrap/dist/js/bootstrap";
-import "air-datepicker/dist/js/datepicker.min";
-import "./maps.js";
-import "../styles/application";
 document.addEventListener("turbolinks:load", function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
