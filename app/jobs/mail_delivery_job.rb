@@ -1,4 +1,4 @@
-class EventUpdateInformerJob < ApplicationJob
+class MailDeliveryJob < ApplicationJob
   queue_as :default
 
   def perform(entity)

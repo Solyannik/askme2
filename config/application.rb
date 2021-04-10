@@ -19,6 +19,7 @@ module Bbq
     config.load_defaults 6.0
     config.time_zone = 'Moscow'
     config.generators.system_tests = nil
+    config.autoloader = :classic
     config.action_mailer.delivery_method = :mailjet
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = [:en]
