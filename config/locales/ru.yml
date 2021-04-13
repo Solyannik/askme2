@@ -195,4 +195,6 @@ ru:
       commit: "Да, конечно."
       cancel: "Нет, я передумал."
     waiting_confirmation: "Ожидается подтверждение для:"
+    pundit:
+    not_authorized: Данное действие для Вас не разрешено!
     
