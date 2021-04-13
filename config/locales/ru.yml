@@ -119,6 +119,8 @@ ru:
       destroy_confirm: 'Вы уверены, что хотите удалить фото?'
       commit: "Да, конечно."
       cancel: "Нет, я передумал."
+  alert_destroy:
+    photo: Вы уверены, что хотите удалить фото?
   event_mailer:
     comment:
       subject: "Новый комментарий @ %{title}"

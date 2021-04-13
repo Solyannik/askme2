@@ -108,6 +108,8 @@ en:
       destroy_confirm: Are you sure delete photo
       commit: Yes
       cancel: No
+  alert_destroy:
+    photo: Are you sure delete photo?
   event_mailer:
     comment:
       subject: "New commit @ %{title}"
