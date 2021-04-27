@@ -1,24 +1,21 @@
-# README
+# Веб-приложение "Пойдем на шашлыки"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение предназначено для встречи с друзьями и знакомыми в различных местах! Приложение позволяет просматривать события, подписываться на события других пользователей, создавать собственные события, загружать фотографии к событиям. Также в приложении реализовано оповещение пользователей по электронной почте(в случае добавления новых фотографий, комментариев к событиям, на которые подписан пользователь) и добавлена опция входа на страницу события по заданому PIN-коду(если это закрытая вечеринка.
 
-Things you may want to cover:
+Версия приложения на heroku https://olyabbq.herokuapp.com/
 
-* Ruby version
+Системные характеристики
 
-* System dependencies
+Ruby version 2.7.2
 
-* Configuration
+Rails version 6.0.3.4
 
-* Database creation
+Установка
 
-* Database initialization
+git clone git@github.com:solyannik/bbq.git
 
-* How to run the test suite
+Перед запуском выполнить
 
-* Services (job queues, cache servers, search engines, etc.)
+bundle && bundle exec rake db:migrate
 
-* Deployment instructions
-
-* ...
+yarn
