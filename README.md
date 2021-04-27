@@ -12,7 +12,7 @@ Rails version 6.0.3.4
 
 Установка
 
-git clone git@github.com:solyannik/bbq.git
+git clone git@github.com:Solyannik/bbq.git
 
 Перед запуском выполнить
 
