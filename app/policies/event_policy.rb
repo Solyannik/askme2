@@ -1,6 +1,12 @@
 class EventPolicy < ApplicationPolicy
+  def create?
+    user.present?
+  end
+
   def show?
-    true
+    return true if record.pincode.blank?
+    return true if user_is_creator?
+    return true if record.pincode_valid?(pin)
   end
 
   def update?
