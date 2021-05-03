@@ -1,0 +1,1 @@
+Dotenv.require_keys("S3_REGION", "S3_ACCESS_KEY", "S3_SECRET_KEY")
