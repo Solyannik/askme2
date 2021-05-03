@@ -1,16 +1,17 @@
 class EventPolicy < ApplicationPolicy
   def create?
-    user.present?
+    context.user.present?
   end
 
   def show?
     return true if record.pincode.blank?
     return true if user_is_creator?
-    return true if record.pincode_valid?(pin)
+    return true if record.pincode_valid?(context.pin)
+    false
   end
 
   def update?
-    user_is_owner?(record)
+    user_is_creator?
   end
 
   def edit?
@@ -29,7 +30,7 @@ class EventPolicy < ApplicationPolicy
 
   private
 
-  def user_is_owner?(event)
-    user.present? && (event.try(:user) == user)
+  def user_is_creator?
+    context.user.present? && (record.user == context.user)
   end
 end
