@@ -8,7 +8,6 @@ class Event < ApplicationRecord
   validates :title, presence: true, length: {maximum: 255}
   validates :address, presence: true
   validates :datetime, presence: true
-  validates :datetime, presence: true, inclusion: { in: (Time.now..) }
 
   scope :persisted, -> { where 'id IS NOT NULL' }
 
