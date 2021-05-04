@@ -39,7 +39,6 @@ end
 group :development do
   gem 'sqlite3'
   gem 'listen'
-  gem 'letter_opener'
   gem 'capistrano', '~> 3.11.0'
   gem 'capistrano-rails', '~> 1.3.0'
   gem 'capistrano-passenger', '~> 0.2'
