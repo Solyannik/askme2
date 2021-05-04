@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_event, only: %i[show edit update destroy]
-  before_action :password_guard!, only: [:show]
+  # before_action :password_guard!, only: [:show]
 
   after_action :verify_authorized, only: %i[show edit update destroy]
 
