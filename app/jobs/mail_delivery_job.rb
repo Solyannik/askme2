@@ -1,17 +1,34 @@
 class MailDeliveryJob < ApplicationJob
-  queue_as :default
+   queue_as :default
+    def perform(**arguments)
+      local_event = nil
 
-  def perform(entity)
-    event = entity.event
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [entity.user&.email]).uniq
-    
-    case entity
-    when Comment
-      all_emails.each { |mail| EventMailer.comment(event, entity, mail).deliver_later }
-    when Photo
-      all_emails.each { |mail| EventMailer.photo(event, entity, mail).deliver_later }
-    when Subscription
-      EventMailer.subscription(event, entity).deliver_later
-    end
+      if arguments[:comment]
+        local_event = arguments[:comment].event
+      elsif arguments[:photo]
+        local_event = arguments[:photo].event
+      end
+
+      all_emails = (local_event.subscriptions.map(&:user_email) + [local_event.user.email]).uniq if local_event
+
+      if arguments[:subscription]
+        EventMailer.subscription(arguments[:subscription]).deliver_later
+
+      elsif arguments[:comment]
+        unless arguments[:comment].user == nil
+          all_emails = all_emails - [(arguments[:comment].user.email)]
+        end
+
+        all_emails.each do |mail|
+          EventMailer.comment(arguments[:comment], mail).deliver_later
+        end
+
+      elsif arguments[:photo]
+        all_emails = all_emails - [arguments[:photo].user.email]
+
+        all_emails.each do |mail|
+          EventMailer.photo(arguments[:photo], mail).deliver_later
+        end
+      end
   end
 end
