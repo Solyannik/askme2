@@ -8,7 +8,7 @@ Devise.setup do |config|
   config.skip_session_storage = [:http_auth]
   config.stretches = Rails.env.test? ? 1 : 12
   config.allow_unconfirmed_access_for = 2.days
-  config.reconfirmable = true
+  config.reconfirmable = false
   config.expire_all_remember_me_on_sign_out = true
   config.password_length = 6..128
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/

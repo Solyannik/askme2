@@ -1,25 +1,28 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  
-  protect_from_forgery with: :exception
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  helper_method :current_user_can_edit?
 
   def pundit_user
     UserContext.new(current_user, cookies["events_#{@event.id}_pincode"])
   end
-  
+
+  protect_from_forgery with: :exception
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  helper_method :current_user_can_edit?
+  helper_method :current_user_can_delete?
+
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-      :account_update, keys: %i[password password_confirmation current_password]
-    )
+    devise_parameter_sanitizer.permit(:account_update, keys: [:password, :password_confirmation, :current_password])
   end
 
   def current_user_can_edit?(model)
     user_signed_in? &&
-      (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
+        (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
+  end
+
+  def current_user_can_delete?(photo)
+    (user_signed_in? && photo.user == current_user) || (user_signed_in? && photo.event.user == current_user)
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
